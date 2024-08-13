@@ -34,13 +34,7 @@ class ReLU:
 class Softmax:
   def front(self,Z):
     S = Z - np.max(Z,axis=1,keepdims=True)
-    # max = np.max(S,axis=1)
-    # np.reshape(max,(S.shape[0],1))
-    # S = S/max
     S=np.exp(S)
-    # Sum = np.sum(S,axis=1)
-    # np.reshape(Sum,(S.shape[0],1))
-    # S=S/Sum
     S = S/np.sum(S,axis=1,keepdims=True)
     return S
 
